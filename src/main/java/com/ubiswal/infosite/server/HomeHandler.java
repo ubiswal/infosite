@@ -1,28 +1,49 @@
 package com.ubiswal.infosite.server;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.URISyntaxException;
+import java.util.logging.Logger;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 @SuppressWarnings("restriction")
 public class HomeHandler implements HttpHandler {
-	public void handle(HttpExchange t) throws IOException {
-		String response = "<!DOCTYPE html>\n" + 
-				"<html>\n" + 
-				"  <head>\n" + 
-				"    Home\n" + 
-				"  </head>\n" + 
-				"\n" + 
-				"  <body>\n" + 
-				"    Welcome to my homepage!\n" + 
-				"  </body>\n" + 
-				"</html>\n" + 
-				"";
-        t.sendResponseHeaders(200, response.getBytes().length);
-        OutputStream os = t.getResponseBody();
-        os.write(response.getBytes());
-        os.close();
-	}
+    private static final String HOME_HTML = "/html/home.html";
+
+    private final static Logger LOGGER = Logger.getLogger(HomeHandler.class.getName());
+
+    public void handle(HttpExchange t) throws IOException {
+        LOGGER.info("Home page handler invoked.");
+
+        try {
+            InputStream in = getClass().getResourceAsStream(HOME_HTML);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            String content = "";
+            String line = null;
+
+            while ((line = reader.readLine()) != null) {
+                content = content + line + "\n";
+            }
+            reader.close();
+            t.sendResponseHeaders(200, content.getBytes().length);
+            OutputStream os = t.getResponseBody();
+            os.write(content.getBytes());
+            os.close();
+            LOGGER.info("Returning home.html");
+        } catch (Exception e) {
+            LOGGER.severe("Exception while serving home.html " + e);
+            String response = "Internal error";
+            t.sendResponseHeaders(500, response.getBytes().length);
+            OutputStream os = t.getResponseBody();
+            os.write(response.getBytes());
+            os.close();
+        }
+    }
 }
