@@ -10,6 +10,7 @@ import com.ubiswal.infosite.utils.MyLogger;
 
 @SuppressWarnings("restriction")
 public class Main {
+    private static final int PORT=80;
     public static void main(String args[]) throws IOException {
         // Create handlers
         HomeHandler homeHandler = new HomeHandler();
@@ -23,7 +24,7 @@ public class Main {
             throw new RuntimeException("Problems with creating the log files");
         }
 
-        HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
         server.createContext("/test", testHandler);
         server.createContext("/", homeHandler);
         server.setExecutor(null); // creates a default executor

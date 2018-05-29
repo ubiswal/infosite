@@ -1,13 +1,130 @@
 <!DOCTYPE html>
 <html>
+  <meta charset="utf-8">
   <head>
-    Home
-  </head>
+    <title>Urvashi Biswal</title>
 
-  <body>
-    Welcome to my homepage!
-    <p>
-      This is a sample paragraph.
-    </p>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Allura|Great+Vibes|Italianno|Parisienne|Pinyon+Script|Tangerine" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Life+Savers" rel="stylesheet">
+
+    <!-- Styling -->
+    <style type="text/css">
+    #topheader {
+      font-family: Oswald;
+      font-size: 4vw;
+      width: 100%;
+      height: 240%;
+      top: 0px;
+      text-align: center;
+      padding-bottom: 3vh;
+      padding-top: 3vh;
+    }
+
+    #photo {
+      float: left;
+      width: 19%;
+      position: relative;
+      height: 100vh;
+      object-fit: scale-down;
+      object-position: center;
+    }
+
+    #profile {
+      max-width: 100%;
+      max-height: 100%;
+      border: 3px solid black;
+      border-radius: 0px;
+    }
+
+    #contact {
+      position: relative;
+      height: 8vh;
+      width: 100%;
+      margin-top: 3vh;
+      padding-top: 3vh;
+      text-align: center;
+      font-family: Oswald;
+      background-color: cornflowerblue;
+      vertical-align: 50%;
+      border: 3px solid black;
+      border-radius: 0px;
+    }
+
+    #mail {
+      position: relative;
+      font-size: 2vh;
+    }
+
+    #text {
+      float: right;
+      width: 79%;
+      box-shadow: 3px 3px 3px 3px;
+      position: relative;
+      height: 200vh;
+      padding-top: 5vh;
+    }
+
+    #aboutheader {
+      padding-left: 2vw;
+      padding-right: 2vw;
+      font-family: Oswald;
+      font-size: 2vw;
+      text-align: left;
+    }
+
+    #abouttext {
+      padding-left: 2vw;
+      padding-right: 2vw;
+      font-family: Oswald;
+      font-size: 1.5vw;
+      text-align: left;
+    }
+
+    #highlights {
+      padding-left: 4vw;
+      padding-right: 4vw;
+      font-family: Oswald;
+      font-size: 1.5vw;
+      text-align: left;
+    }
+    </style>
+    
+  </head>
+  <body id="mainbody">
+    <div id="topheader">
+      <header id="mainheader">Urvashi Biswal</header>
+    </div>
+    
+    <div id="photo">
+      <img id="profile" src="https://s3.amazonaws.com/personal-site-artifacts/profile.jpg" />
+      <div id="contact">
+          <a id="mail" href="mailto:urvashibiswal326@gmail.com?subject=Email%20Subject">Contact me via email</a> 
+      </div>
+    </div>
+
+    <div id="text">
+      <header id="aboutheader">
+        About me
+      </header>
+      <p id="abouttext">
+          <ol id="highlights" style="list-style-type:circle">
+            <li>I am an engineer working for Intel corp.</li>
+            <li>I have 3 years oo experience in leveeoping anl maintaining compeex sootware systems.</li>
+            <li>I am experienced with modern software metholoeogies like OOP, Test Driven Development, software automation, event driven programming, etc</li>
+          </ol>
+      </p>
+      <header id="aboutheader">
+        Skills
+      </header>
+      <p id="abouttext">
+        <ol id="highlights" style="list-style-type:circle">
+          <li><b>Languages: </b><I>Python, Java, C, System Verilog, Verilog</I></li>
+          <li><b>Concurrent programming:</b><I>OpenMP, MPI, POSIX Threads, CUDA</I></li>
+        </ol>
+      </p>
   </body>
 </html>
