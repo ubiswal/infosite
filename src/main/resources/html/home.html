@@ -22,15 +22,21 @@
       text-align: center;
       padding-bottom: 3vh;
       padding-top: 3vh;
+      color: black;
+      background-color: orange;
+      border-radius: 8px;
+      margin-bottom: 2vh;
+      margin-top: 2vh;
     }
 
     #photo {
       float: left;
       width: 19%;
       position: relative;
-      height: 100vh;
+      height: 120vh;
       object-fit: scale-down;
       object-position: center;
+      margin-top: 2vh;
     }
 
     #profile {
@@ -38,25 +44,54 @@
       max-height: 100%;
       border: 3px solid black;
       border-radius: 0px;
+      border-radius: 8px;
     }
 
     #contact {
+      border: 3px solid black;
       position: relative;
-      height: 8vh;
-      width: 100%;
-      margin-top: 3vh;
-      padding-top: 3vh;
+      height: 6vh;
+      width: 16vw;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      align-content: center;
       text-align: center;
       font-family: Oswald;
-      background-color: cornflowerblue;
-      vertical-align: 50%;
+      background-color: white;
+      border-radius: 8px;
+    }
+
+    #mainbutton {
       border: 3px solid black;
-      border-radius: 0px;
+      background-color: cornflowerblue;
+      color: black;
+      height: 7vh;
+      width: 16vw;
+      font-family: Oswald;
+      font-size: 2vh;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      border-radius: 8px;
+    }
+
+    #button {
+      border: 3px solid black;
+      height: 7vh;
+      width: 16vw;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      color: black;
+      font-family: Oswald;
+      font-size: 2vh;
+      background-color: white;
+      border-radius: 8px;
     }
 
     #mail {
       position: relative;
       font-size: 2vh;
+      top: 1.5vh;
+      color: black;
     }
 
     #text {
@@ -65,7 +100,8 @@
       box-shadow: 3px 3px 3px 3px;
       position: relative;
       height: 200vh;
-      padding-top: 5vh;
+      margin-top: 2vh;
+      border-radius: 8px;
     }
 
     #aboutheader {
@@ -74,6 +110,10 @@
       font-family: Oswald;
       font-size: 2vw;
       text-align: left;
+      color: cornflowerblue;
+      box-shadow: 0 4px 2px -2px gray;
+      margin-left: 1vw;
+      margin-right: 1vw;
     }
 
     #abouttext {
@@ -89,6 +129,14 @@
       padding-right: 4vw;
       font-family: Oswald;
       font-size: 1.5vw;
+      text-align: justify;
+    }
+
+    #subheader {
+      padding-left: 2vw;
+      padding-right: 2vw;
+      font-family: Oswald;
+      font-size: 1.5vw;
       text-align: left;
     }
     </style>
@@ -101,15 +149,18 @@
     
     <div id="photo">
       <img id="profile" src="https://s3.amazonaws.com/personal-site-artifacts/profile.jpg" />
+      <button id="mainbutton" >Home</button>
+      <button id="button">Demos</button>
       <div id="contact">
-          <a id="mail" href="mailto:urvashibiswal326@gmail.com?subject=Email%20Subject">Contact me via email</a> 
+          <a id="mail" href="mailto:urvashibiswal326@gmail.com?subject=Email%20Subject" style="text-decoration:none">Contact</a> 
       </div>
     </div>
 
+    <!-- About me -->
     <div id="text">
-      <header id="aboutheader">
+      <h1 id="aboutheader">
         About me
-      </header>
+      </h1>
       <p id="abouttext">
           <ol id="highlights" style="list-style-type:circle">
             <li>I am an engineer working for Intel.</li>
@@ -117,14 +168,56 @@
             <li>I am experienced with modern software methodologies like OOP, Test Driven Development, software automation, event driven programming etc.</li>
           </ol>
       </p>
-      <header id="aboutheader">
+
+      <!-- Skills -->
+      <h1 id="aboutheader">
         Skills
-      </header>
+      </h1>
       <p id="abouttext">
         <ol id="highlights" style="list-style-type:circle">
           <li><b>Languages: </b><I>Python, Java, C, System Verilog, Verilog</I></li>
           <li><b>Concurrent programming:</b><I>OpenMP, MPI, POSIX Threads, CUDA</I></li>
         </ol>
       </p>
+
+      <!-- Work ex -->
+      <h1 id="aboutheader">
+        Work experience
+      </h1>
+
+      <h2 id="subheader">
+        Intel Corp. Pre silicon validation engineer. <b>(January 2015 - Present)</b>
+      </h2>
+
+      <p id="aboutext">
+        <ol id="highlights" style="list-style-type:circle">
+          <li>Responsibilities involved developing software frameworks for latest Intel SoC products.</li>
+          <li>
+            <u>Developed a validation stack from scratch.</u>
+            <ol id="subhighlights" style="list-style-type: square">
+              <li>This involved writing software from ground up using modern programing paradigms like <b>OOP, event driven programming,</b> etc</li>
+              <li>A very big challenge was continuous optimization so that adding more and more tests do not bump up the test regression runtime signifigantly.</li>
+              <li>We followed TDD using <a href="http://agilesoc.com/open-source-projects/svunit/"><b>SVUnit</b></a> which was a first in our org. This ended up improving our development cycle speed and quality.</li>
+            </ol>
+          </li>
+          <li>
+              <u>Developed reusable APIs usable across teams for running validation.</u>
+              <ol id="subhighlights" style="list-style-type: square">
+                <li>Biggest challenge in designing APIs was to strike a balance between flexibility and ease of configuration.</li>
+                <li>The framework was developed using System Verilog.</li>
+                <li>Designed the API with unit tests around it to enable TDD.</li>
+              </ol>
+          </li>
+          <li>
+              <u>Development of a general purpose scoreboard (event aggregator).</u>
+              <ol id="subhighlights" style="list-style-type: square">
+                <li>Biggest challenge was developing the scoreboard in a way to process multiple asynchronous events and implement various checks including the order of the events.</li>
+                <li>Also, the scoreboard had to be flexible enough to be reconfigured and used in in more than 100 test cases in different ways.</li>
+              </ol>
+          </li>
+        </ol>
+      </p>
+
+    </div>
   </body>
 </html>
