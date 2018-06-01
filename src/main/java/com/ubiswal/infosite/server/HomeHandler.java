@@ -27,7 +27,6 @@ public class HomeHandler implements HttpHandler {
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             String content = "";
             String line = null;
-
             while ((line = reader.readLine()) != null) {
                 content = content + line + "\n";
             }
