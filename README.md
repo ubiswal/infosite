@@ -18,3 +18,12 @@ To start the server, we will execute the generated jar
 ```
 java -jar target/infosite-0.0.1-jar-with-dependencies.jar
 ```
+
+# References
+## Maven
+## HTML
+## AWS
+## Java
+## Cryptography
+* https://stackoverflow.com/questions/39355241/compute-hmac-sha512-with-secret-key-in-java
+* https://github.com/Caligatio/jsSHA

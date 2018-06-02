@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 
 import com.sun.net.httpserver.HttpServer;
+import com.ubiswal.infosite.server.GraphDatabasePageHandler;
 import com.ubiswal.infosite.server.HomeHandler;
 import com.ubiswal.infosite.server.TestHandler;
 import com.ubiswal.infosite.utils.MyLogger;
@@ -15,6 +16,7 @@ public class Main {
         // Create handlers
         HomeHandler homeHandler = new HomeHandler();
         TestHandler testHandler = new TestHandler();
+        GraphDatabasePageHandler graphDbHandler = new GraphDatabasePageHandler(); 
 
         // Set up logging
         try {
@@ -26,6 +28,7 @@ public class Main {
 
         HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
         server.createContext("/test", testHandler);
+        server.createContext("/db", graphDbHandler);
         server.createContext("/", homeHandler);
         server.setExecutor(null); // creates a default executor
         server.start();
