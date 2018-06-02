@@ -10,9 +10,30 @@
         <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Life+Savers" rel="stylesheet">
 
+        <script id="test">
+          function demoFunction () {
+            document.getElementById("demo").innerHTML = "Hello JavaScript!";
+            console.log("TEST");
+          }
+        </script>
+        <script>
+          function httpGet(theUrl) {
+            theUrl="http://localhost/operation";
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+            console.log(xmlHttp.responseText);
+          }
+        </script>
     </head>
 
     <body>
-        <h1>This will display the graph database</h1>
+      <h1>This will display the graph database</h1>
+      <p id="demo">
+        World!
+      </p>
+      <button type="button" id="demobutton" onclick="httpGet()">
+        Test button!
+      </button>
     </body>
 </html>

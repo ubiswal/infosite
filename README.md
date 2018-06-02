@@ -22,6 +22,10 @@ java -jar target/infosite-0.0.1-jar-with-dependencies.jar
 # References
 ## Maven
 ## HTML
+* https://www.w3schools.com/tags/att_script_src.asp
+* https://www.w3schools.com/tags/tag_script.asp
+* https://stackoverflow.com/questions/247483/http-get-request-in-javascript
+
 ## AWS
 ## Java
 ## Cryptography
