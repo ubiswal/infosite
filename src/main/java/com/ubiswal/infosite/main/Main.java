@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 
 import com.sun.net.httpserver.HttpServer;
+import com.ubiswal.infosite.server.Authorize;
 import com.ubiswal.infosite.server.GraphDatabasePageHandler;
 import com.ubiswal.infosite.server.HomeHandler;
 import com.ubiswal.infosite.server.OperationHandler;
@@ -12,13 +13,17 @@ import com.ubiswal.infosite.utils.MyLogger;
 
 @SuppressWarnings("restriction")
 public class Main {
-    private static final int PORT=80;
+ // Replace this with your password before starting the server
+    private static final String SECRET = "SECRET";
+    private static final int PORT = 80;
+
     public static void main(String args[]) throws IOException {
+        Authorize auth = new Authorize(SECRET);
         // Create handlers
         HomeHandler homeHandler = new HomeHandler();
         TestHandler testHandler = new TestHandler();
-        GraphDatabasePageHandler graphDbHandler = new GraphDatabasePageHandler(); 
-        OperationHandler operationHandler = new OperationHandler();
+        GraphDatabasePageHandler graphDbHandler = new GraphDatabasePageHandler();
+        OperationHandler operationHandler = new OperationHandler(auth);
 
         // Set up logging
         try {
