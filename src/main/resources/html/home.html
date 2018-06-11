@@ -5,7 +5,7 @@
     <title>Urvashi Biswal</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu|Roboto|Slabo+27px" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Allura|Great+Vibes|Italianno|Parisienne|Pinyon+Script|Tangerine" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
@@ -13,80 +13,74 @@
 
     <!-- Styling -->
     <style type="text/css">
+    #container {
+      background-color: #272727;
+    }
+    #mainbody {
+      background-color: #3b3b3b;
+      box-shadow: 3px 3px 3px 3px;
+      width: 80%;
+      height: 200vh;
+      margin-left: 10%;
+      margin-right: 10%;
+      margin-top: 2vh;
+      padding-top: 1%;
+    }
+
     #topheader {
-      font-family: Oswald;
-      font-size: 4vw;
-      width: 100%;
-      height: 240%;
+      width: 98%;
+      height: 26vh;
       top: 0px;
-      text-align: center;
       padding-bottom: 3vh;
       padding-top: 3vh;
-      color: black;
-      background-color: orange;
-      border-radius: 8px;
-      margin-bottom: 2vh;
-      margin-top: 2vh;
-    }
-
-    #photo {
-      float: left;
-      width: 19%;
+      margin-left: 1%;
       position: relative;
-      height: 120vh;
-      object-fit: scale-down;
-      object-position: center;
-      margin-top: 2vh;
+      background-color: #df474a;
     }
-
     #profile {
-      max-width: 100%;
-      max-height: 100%;
-      border: 3px solid black;
-      border-radius: 0px;
-      border-radius: 8px;
+      float: left;
+      width: 24vh;
+      height: 24vh;
+      object-fit: cover;
+      border-radius: 12vh;
+      margin-left: 2vh;
+      margin-top: 1vh;
+    }
+    #mainheader {
+      font-family: Oswald, sans-serif;
+      font-size: 4vw;
+      text-align: left;
+      color: white;
+      float: right;
+      width: 70%;
     }
 
-    #contact {
-      border: 3px solid black;
-      position: relative;
-      height: 6vh;
-      width: 16vw;
-      margin-top: 2vh;
-      margin-bottom: 2vh;
-      align-content: center;
+    #intro {
+      font-family: Oswald, sans-serif;
+      font-size: 1vw;
+      text-align: left;
+      color: black;
+      float: right;
+      width: 70%;
+    }
+
+    #buttons {
       text-align: center;
-      font-family: Oswald;
-      background-color: white;
-      border-radius: 8px;
-    }
-
-    #mainbutton {
-      border: 3px solid black;
-      background-color: cornflowerblue;
-      color: black;
-      height: 7vh;
-      width: 16vw;
-      font-family: Oswald;
-      font-size: 2vh;
-      margin-top: 2vh;
+      background-color: #4A235A;
       margin-bottom: 2vh;
-      border-radius: 8px;
+      margin-left: 1%;
+      width: 98%;
     }
-
-    #button {
-      border: 3px solid black;
-      height: 7vh;
-      width: 16vw;
-      margin-top: 2vh;
-      margin-bottom: 2vh;
-      color: black;
+    #topbutton {
+      height: 3vh;
+      width: 10vw;
+      background-color: Transparent;
+      border: none;
       font-family: Oswald;
-      font-size: 2vh;
-      background-color: white;
-      border-radius: 8px;
+      font-size: 1vw;
+      color: white;
     }
-
+  
     #mail {
       position: relative;
       font-size: 2vh;
@@ -95,129 +89,158 @@
     }
 
     #text {
-      float: right;
-      width: 79%;
-      box-shadow: 3px 3px 3px 3px;
+      width: 100%;
       position: relative;
       height: 200vh;
-      margin-top: 2vh;
-      border-radius: 8px;
+      margin-top: 5vh;
     }
-
+  
     #aboutheader {
       padding-left: 2vw;
       padding-right: 2vw;
       font-family: Oswald;
-      font-size: 2vw;
+      font-size: 3vw;
       text-align: left;
-      color: cornflowerblue;
-      box-shadow: 0 4px 2px -2px gray;
+      color: white;
       margin-left: 1vw;
       margin-right: 1vw;
+      
     }
 
     #abouttext {
-      padding-left: 2vw;
-      padding-right: 2vw;
+      margin-left: 3vw;
+      margin-right: 3vw;
+      font-family: Oswald;
+      font-size: 1.2vw;
+      text-align: left;
+      color: white;
+    }
+
+    #lists {
+      margin-left: 3vw;
+      margin-right: 3vw;
       font-family: Oswald;
       font-size: 1.5vw;
       text-align: left;
+      color: white;
     }
 
-    #highlights {
-      padding-left: 4vw;
-      padding-right: 4vw;
-      font-family: Oswald;
-      font-size: 1.5vw;
-      text-align: justify;
+    #abouttext em {
+      color: orange;
+      font-style: normal;
+      font-weight: bold;
     }
 
-    #subheader {
-      padding-left: 2vw;
-      padding-right: 2vw;
+    #skillbutton {
+      height: 5vh;
+      background-color: transparent;
+      border: none;
       font-family: Oswald;
-      font-size: 1.5vw;
-      text-align: left;
+      font-size: 1.3vw;
+      color: white;
+      border: 1.5px solid #df474a;
+      border-radius: 2.5vh;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #df474a;
     }
     </style>
     
   </head>
-  <body id="mainbody">
-    <div id="topheader">
-      <header id="mainheader">Urvashi Biswal</header>
-    </div>
-    
-    <div id="photo">
-      <img id="profile" src="https://s3.amazonaws.com/personal-site-artifacts/profile.jpg" />
-      <button id="mainbutton" >Home</button>
-      <button id="button">Demos</button>
-      <div id="contact">
-          <a id="mail" href="mailto:urvashibiswal326@gmail.com?subject=Email%20Subject" style="text-decoration:none">Contact</a> 
+  <body id="container">
+    <div id="mainbody">
+      <div id="topheader">
+        <img id="profile" src="https://s3.amazonaws.com/personal-site-artifacts/profile.jpg" />
+        <header id="mainheader">Urvashi Biswal</header>
+        <p id="intro">SoC validation Engineer, Intel Corp.</br>Hudson, MA</br><a id="mail" href="mailto:urvashibiswal326@gmail.com?subject=Email%20Subject" style="text-decoration:none">Click to contact</a></p>
       </div>
-    </div>
+    
+      <div id="buttons">
+        <button id="topbutton" >Home</button>
+        <button id="topbutton">Demos</button>
+        <button id="topbutton">Download resume</button>
+      </div>
 
-    <!-- About me -->
-    <div id="text">
-      <h1 id="aboutheader">
-        About me
-      </h1>
-      <p id="abouttext">
-          <ol id="highlights" style="list-style-type:circle">
-            <li>I am an engineer working for Intel.</li>
-            <li>I have 3 years of experience in developing and maintaining complex software systems.</li>
-            <li>I am experienced with modern software methodologies like OOP, Test Driven Development, software automation, event driven programming etc.</li>
+      <!-- About me -->
+      <div id="text">
+        <header id="aboutheader">
+          About me
+        </header>
+        <p id="abouttext">
+          I am a SoC verification engineer working for Intel Corp, located in Hudson, MA. I am passionate about engineering and strive to keep learning new technologies.
+          I have graduated from <em>University of Florida</em> with a Master's degree in Electrical and Computer Engineering in 2012. I have worked as a SoC validation engineer for <em>Intel</em> since then.</br></br>
+          As a hardware validation engineer, I am in a unique position to understand the intricacies of the structure of the chips that runs the wold and also understand and use the software abstractions and concepts
+          like OOP, etc that have resulted from yers of development of computer science.</br></br>
+          Createing this website has been a fun undertaking recently. I started this project to teach myself some web technologies as well as have my own website.
+          I decided to build this from ground up instead of using readymade templates or tools. This is hosted on an AWS EC2 instance and I bought my domain from AWS Route53.
+          I hope to keep improving on this website! </br></br>
+        </p>
+        <hr></hr>
+
+        <!-- Skills -->
+        <header id="aboutheader">
+          Skills
+        </header>
+        <p id="abouttext">
+          <ol id="lists" style="list-style-type:circle">
+            <li><b>Languages: </b>
+              <button id="skillbutton" class="python">Python</button>
+              <button id="skillbutton" class="java">Java</button> 
+              <button id="skillbutton" class="c">C</button>
+              <button id="skillbutton" class="sv">System Verilog</button>
+              <button id="skillbutton" class="verilog">Verilog</button></li>
+            </br>
+            <li><b>Concurrent programming:</b><I>
+                <button id="skillbutton" class="openmp">OpenMP</button>
+                <button id="skillbutton" class="mpi">MPI</button>
+                <button id="skillbutton" class="pthread">POSIX Threads</button>
+                <button id="skillbutton" class="cuda">CUDA</button></I></li>
           </ol>
-      </p>
+        </p>
+        <hr></hr>
 
-      <!-- Skills -->
-      <h1 id="aboutheader">
-        Skills
-      </h1>
-      <p id="abouttext">
-        <ol id="highlights" style="list-style-type:circle">
-          <li><b>Languages: </b><I>Python, Java, C, System Verilog, Verilog</I></li>
-          <li><b>Concurrent programming:</b><I>OpenMP, MPI, POSIX Threads, CUDA</I></li>
-        </ol>
-      </p>
+        <!-- Work ex -->
+        <h1 id="aboutheader">
+          Work experience
+        </h1>
 
-      <!-- Work ex -->
-      <h1 id="aboutheader">
-        Work experience
-      </h1>
+        <h2 id="subheader">
+          Intel Corp. Pre silicon validation engineer. <b>(January 2015 - Present)</b>
+        </h2>
 
-      <h2 id="subheader">
-        Intel Corp. Pre silicon validation engineer. <b>(January 2015 - Present)</b>
-      </h2>
-
-      <p id="aboutext">
-        <ol id="highlights" style="list-style-type:circle">
-          <li>Responsibilities involved developing software frameworks for latest Intel SoC products.</li>
-          <li>
-            <u>Developed a validation stack from scratch.</u>
-            <ol id="subhighlights" style="list-style-type: square">
-              <li>This involved writing software from ground up using modern programing paradigms like <b>OOP, event driven programming,</b> etc</li>
-              <li>A very big challenge was continuous optimization so that adding more and more tests do not bump up the test regression runtime signifigantly.</li>
-              <li>We followed TDD using <a href="http://agilesoc.com/open-source-projects/svunit/"><b>SVUnit</b></a> which was a first in our org. This ended up improving our development cycle speed and quality.</li>
-            </ol>
-          </li>
-          <li>
-              <u>Developed reusable APIs usable across teams for running validation.</u>
+        <p id="aboutext">
+          <ol id="highlights" style="list-style-type:circle">
+            <li>Responsibilities involved developing software frameworks for latest Intel SoC products.</li>
+            <li>
+              <u>Developed a validation stack from scratch.</u>
               <ol id="subhighlights" style="list-style-type: square">
-                <li>Biggest challenge in designing APIs was to strike a balance between flexibility and ease of configuration.</li>
-                <li>The framework was developed using System Verilog.</li>
-                <li>Designed the API with unit tests around it to enable TDD.</li>
+                <li>This involved writing software from ground up using modern programing paradigms like <b>OOP, event driven programming,</b> etc</li>
+                <li>A very big challenge was continuous optimization so that adding more and more tests do not bump up the test regression runtime signifigantly.</li>
+                <li>We followed TDD using <a href="http://agilesoc.com/open-source-projects/svunit/"><b>SVUnit</b></a> which was a first in our org. This ended up improving our development cycle speed and quality.</li>
               </ol>
-          </li>
-          <li>
-              <u>Development of a general purpose scoreboard (event aggregator).</u>
-              <ol id="subhighlights" style="list-style-type: square">
-                <li>Biggest challenge was developing the scoreboard in a way to process multiple asynchronous events and implement various checks including the order of the events.</li>
-                <li>Also, the scoreboard had to be flexible enough to be reconfigured and used in in more than 100 test cases in different ways.</li>
-              </ol>
-          </li>
-        </ol>
-      </p>
+            </li>
+            <li>
+                <u>Developed reusable APIs usable across teams for running validation.</u>
+                <ol id="subhighlights" style="list-style-type: square">
+                  <li>Biggest challenge in designing APIs was to strike a balance between flexibility and ease of configuration.</li>
+                  <li>The framework was developed using System Verilog.</li>
+                  <li>Designed the API with unit tests around it to enable TDD.</li>
+                </ol>
+            </li>
+            <li>
+               <u>Development of a general purpose scoreboard (event aggregator).</u>
+                <ol id="subhighlights" style="list-style-type: square">
+                  <li>Biggest challenge was developing the scoreboard in a way to process multiple asynchronous events and implement various checks including the order of the events.</li>
+                  <li>Also, the scoreboard had to be flexible enough to be reconfigured and used in in more than 100 test cases in different ways.</li>
+                </ol>
+            </li>
+          </ol>
+        </p>
 
+      </div>
     </div>
   </body>
 </html>
