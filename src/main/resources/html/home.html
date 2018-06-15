@@ -147,6 +147,46 @@
       height: 1px;
       background: #df474a;
     }
+
+    #workex {
+      float: left;
+      width: 60%;
+      height: 40vh;
+      border-right: #df474a solid 1px;
+      position: relative;
+    }
+
+    #presence {
+      float: right;
+      width: 35%;
+      height: 40vh;
+      position: relative;
+      text-align: center;
+    }
+
+    #socialbutton {
+      width: 15vw;
+      height: 8vh;
+      margin-top: 2vh;
+      background: transparent;
+      border: #df474a 0px solid;
+      font-family: Oswald;
+      font-size: 4vh;
+    }
+
+    #socialbutton.linkedin {
+      background: #0077b5;
+    }
+
+    #socialbutton.github {
+      background: black;
+      color: white;
+    }
+
+    #combined {
+      height: 40vh;
+      border-bottom: #df474a solid 1px;
+    }
     </style>
     
   </head>
@@ -203,43 +243,27 @@
         <hr></hr>
 
         <!-- Work ex -->
-        <h1 id="aboutheader">
-          Work experience
-        </h1>
+        <div id="combined">
+          <div id="workex">
+            <header id="aboutheader">
+              Work experience
+            </header>
 
-        <h2 id="subheader">
-          Intel Corp. Pre silicon validation engineer. <b>(January 2015 - Present)</b>
-        </h2>
+            <h2 id="abouttext">
+              <em>Intel Corp.</em> Pre silicon validation engineer. <b>(January 2015 - Present)</b></br>
+              <em>AIMS technology Inc.</em> (Bay area start up) Verification Intern <b>(October 2014 – January 2015)</b></br>
+              <em>NSF Center for High Performance Reconfigurable Computing</em> <b>(May 2013- July 2013)</b></br>
+            </h2>
+          </div>
 
-        <p id="aboutext">
-          <ol id="highlights" style="list-style-type:circle">
-            <li>Responsibilities involved developing software frameworks for latest Intel SoC products.</li>
-            <li>
-              <u>Developed a validation stack from scratch.</u>
-              <ol id="subhighlights" style="list-style-type: square">
-                <li>This involved writing software from ground up using modern programing paradigms like <b>OOP, event driven programming,</b> etc</li>
-                <li>A very big challenge was continuous optimization so that adding more and more tests do not bump up the test regression runtime signifigantly.</li>
-                <li>We followed TDD using <a href="http://agilesoc.com/open-source-projects/svunit/"><b>SVUnit</b></a> which was a first in our org. This ended up improving our development cycle speed and quality.</li>
-              </ol>
-            </li>
-            <li>
-                <u>Developed reusable APIs usable across teams for running validation.</u>
-                <ol id="subhighlights" style="list-style-type: square">
-                  <li>Biggest challenge in designing APIs was to strike a balance between flexibility and ease of configuration.</li>
-                  <li>The framework was developed using System Verilog.</li>
-                  <li>Designed the API with unit tests around it to enable TDD.</li>
-                </ol>
-            </li>
-            <li>
-               <u>Development of a general purpose scoreboard (event aggregator).</u>
-                <ol id="subhighlights" style="list-style-type: square">
-                  <li>Biggest challenge was developing the scoreboard in a way to process multiple asynchronous events and implement various checks including the order of the events.</li>
-                  <li>Also, the scoreboard had to be flexible enough to be reconfigured and used in in more than 100 test cases in different ways.</li>
-                </ol>
-            </li>
-          </ol>
-        </p>
-
+          <div id="presence">
+            <header id="aboutheader">
+              Social presence
+            </header>
+            <button id="socialbutton" class="linkedin" onclick="window.open('https://www.linkedin.com/in/urvashi-biswal-53203a65/')">Linkedin</button></br>
+            <button id="socialbutton" class="github" onclick="window.open('https://github.com/ubiswal')" >Github</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
