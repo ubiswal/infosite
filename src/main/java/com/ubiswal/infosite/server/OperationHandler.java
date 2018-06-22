@@ -2,17 +2,20 @@ package com.ubiswal.infosite.server;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
 import java.util.Objects;
 import org.apache.log4j.Logger;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.io.IOUtils;
 
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 @SuppressWarnings("restriction")
-public class OperationHandler implements HttpHandler {
+public class OperationHandler extends BaseHandler implements HttpHandler {
     private final static Logger LOGGER = Logger.getLogger(OperationHandler.class);
     final Authorize auth;
     
@@ -25,32 +28,43 @@ public class OperationHandler implements HttpHandler {
             Headers headers = t.getRequestHeaders();
             String authorizationHeader = new String(Base64.decodeBase64(headers.get("Authorization").get(0)), "UTF-8");
             String operationHeader = new String(Base64.decodeBase64(headers.get("Operation").get(0)), "UTF-8");
-            
-            LOGGER.info(operationHeader);
-            LOGGER.info(authorizationHeader);
 
             if (!auth.authenticate(operationHeader, authorizationHeader)) {
-                String response = "Unauthorized!";
-                t.sendResponseHeaders(401, response.getBytes().length);
-                OutputStream os = t.getResponseBody();
-                os.write(response.getBytes());
-                os.close();
+                LOGGER.warn("Unauthorized access attempt.");
+                serveUnauthorizedPage(t);
             } else {
-                String content = "Hello world!";
-                t.sendResponseHeaders(200, content.getBytes().length);
-                OutputStream os = t.getResponseBody();
-                os.write(content.getBytes());
-                os.flush();
-                os.close();
+                LOGGER.info("Successfully authorized");
+                
+                // Step 1: Get back the map
+                String request = IOUtils.toString(t.getRequestBody(), StandardCharsets.UTF_8);
+                try {
+                    Map<String, String> requestParams = convertReqToMap(request);
+                    String operation = requestParams.get("Operation");
+                   
+                    if (operation.equals("AddEntry")) {
+                        String name = requestParams.get("Name");
+                        serveOperations(t, addEntry(name));
+                        return;
+                    } else if (operation.equals("ListEntries")) {
+                        serveOperations(t, listEntries());
+                        return;
+                    }
+                    serveMalformedReqPage(t);
+                } catch (RuntimeException e) {
+                    serveMalformedReqPage(t);
+                }
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            String response = "Internal error";
-            t.sendResponseHeaders(500, response.getBytes().length);
-            OutputStream os = t.getResponseBody();
-            os.write(response.getBytes());
-            os.close();
+            LOGGER.error(e);
+            serveErrorPage(t);
         }
     }
-
+    
+    private String addEntry(final String name) {
+        return "Added " + name;
+    }
+    
+    private String listEntries() {
+        return "All entries";
+    }
 }

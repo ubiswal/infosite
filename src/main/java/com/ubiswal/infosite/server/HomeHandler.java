@@ -6,7 +6,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 @SuppressWarnings("restriction")
-public class HomeHandler extends BaseStaticPageHandler implements HttpHandler {
+public class HomeHandler extends BaseHandler implements HttpHandler {
     private static final String HOME_HTML = "/html/home.html";
     final static Logger LOGGER = Logger.getLogger(HomeHandler.class);
 

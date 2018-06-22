@@ -7,7 +7,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 @SuppressWarnings("restriction")
-public class GraphDatabasePageHandler extends BaseStaticPageHandler implements HttpHandler {
+public class GraphDatabasePageHandler extends BaseHandler implements HttpHandler {
     private static final String GRAPH_HTML = "/html/graphdb.html";
 
     private final static Logger LOGGER = Logger.getLogger(GraphDatabasePageHandler.class);
