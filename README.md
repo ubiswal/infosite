@@ -28,6 +28,8 @@ java -jar target/infosite-0.0.1-jar-with-dependencies.jar
 
 ## AWS
 ## Java
+* https://www.mkyong.com/logging/log4j-hello-world-example/
+
 ## Cryptography
 * https://stackoverflow.com/questions/39355241/compute-hmac-sha512-with-secret-key-in-java
 * https://github.com/Caligatio/jsSHA

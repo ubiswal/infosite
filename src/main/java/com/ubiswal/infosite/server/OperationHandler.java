@@ -3,7 +3,7 @@ package com.ubiswal.infosite.server;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Objects;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import org.apache.commons.codec.binary.Base64;
 
@@ -13,14 +13,13 @@ import com.sun.net.httpserver.HttpHandler;
 
 @SuppressWarnings("restriction")
 public class OperationHandler implements HttpHandler {
-    private final static Logger LOGGER = Logger.getLogger(OperationHandler.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(OperationHandler.class);
     final Authorize auth;
     
     public OperationHandler(Authorize auth) {
         this.auth = Objects.requireNonNull(auth);
     }
 
-    @Override
     public void handle(HttpExchange t) throws IOException {
         try {
             Headers headers = t.getRequestHeaders();
@@ -41,6 +40,7 @@ public class OperationHandler implements HttpHandler {
                 t.sendResponseHeaders(200, content.getBytes().length);
                 OutputStream os = t.getResponseBody();
                 os.write(content.getBytes());
+                os.flush();
                 os.close();
             }
         } catch (Exception e) {

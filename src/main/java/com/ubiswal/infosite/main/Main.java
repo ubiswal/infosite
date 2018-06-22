@@ -2,6 +2,9 @@ package com.ubiswal.infosite.main;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.URL;
+
+import org.apache.log4j.PropertyConfigurator;
 
 import com.sun.net.httpserver.HttpServer;
 import com.ubiswal.infosite.server.Authorize;
@@ -27,6 +30,9 @@ public class Main {
 
         // Set up logging
         try {
+            ClassLoader loader = Thread.currentThread().getContextClassLoader();
+            URL url = loader.getResource("configdata/log4j.properties");
+            PropertyConfigurator.configure(url);
             MyLogger.setup();
         } catch (IOException e) {
             e.printStackTrace();
