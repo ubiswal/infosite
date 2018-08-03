@@ -4,10 +4,11 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+
+import org.apache.log4j.Logger;
 
 public class Authorize {
     private final static Logger LOGGER = Logger.getLogger(Authorize.class.getName());
@@ -21,18 +22,22 @@ public class Authorize {
         String construct = operationStr + ":" + secret;
         try {
             String calculatedMac = hmac(construct, secret);
+            LOGGER.info("Successfully authorized");
             return calculatedMac.toLowerCase().equals(hmacStr.toLowerCase());
         } catch (InvalidKeyException e) {
+            LOGGER.error("Failed to authorize " + e);
             return false;
         } catch (UnsupportedEncodingException e) {
+            LOGGER.error("Failed to authorize " + e);
             return false;
         } catch (NoSuchAlgorithmException e) {
+            LOGGER.error("Failed to authorize " + e);
             return false;
         }
     }
     
     public static String hmac(final String message, final String key) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
-        LOGGER.info("Message : " + message);
+        LOGGER.debug("Message : " + message);
         byte[] byteKey = key.getBytes("UTF-8");
         final String HMAC_SHA512 = "HmacSHA512";
         Mac sha512_HMAC = Mac.getInstance(HMAC_SHA512);

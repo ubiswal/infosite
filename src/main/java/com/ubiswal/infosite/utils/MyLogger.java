@@ -1,28 +1,38 @@
 package com.ubiswal.infosite.utils;
 
 import java.io.IOException;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
+
+
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
 
 // reference: http://www.vogella.com/tutorials/Logging/article.html
 public class MyLogger {
     private static String LOG_PATH = "/var/log/Application.log";
-    private static FileHandler fileTxt;
-    private static SimpleFormatter formatterTxt;
 
     static public void setup() throws IOException {
+        ConsoleAppender console = new ConsoleAppender(); //create appender
+        //configure the appender
+        String PATTERN = "%d [%p] %c %m%n";
+        console.setLayout(new PatternLayout(PATTERN)); 
+        console.setThreshold(Level.ALL);
+        console.activateOptions();
+        //add appender to any Logger (here is root)
+        Logger.getRootLogger().addAppender(console);
 
-        // get the global logger to configure it
-        Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+        FileAppender fa = new FileAppender();
+        fa.setName("FileLogger");
+        fa.setFile(LOG_PATH);
+        fa.setLayout(new PatternLayout(PATTERN));
+        fa.setThreshold(Level.INFO);
+        fa.setAppend(true);
+        fa.activateOptions();
 
-        logger.setLevel(Level.INFO);
-        fileTxt = new FileHandler(LOG_PATH);
-
-        // create a TXT formatter
-        formatterTxt = new SimpleFormatter();
-        fileTxt.setFormatter(formatterTxt);
-        logger.addHandler(fileTxt);
+        //add appender to any Logger (here is root)
+        Logger.getRootLogger().addAppender(fa);
+        //repeat with all other desired appenders
     }
 }

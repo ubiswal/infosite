@@ -31,3 +31,6 @@ java -jar target/infosite-0.0.1-jar-with-dependencies.jar
 ## Cryptography
 * https://stackoverflow.com/questions/39355241/compute-hmac-sha512-with-secret-key-in-java
 * https://github.com/Caligatio/jsSHA
+
+# Log4j
+* https://stackoverflow.com/questions/8965946/configuring-log4j-loggers-programmatically
