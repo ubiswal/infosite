@@ -42,6 +42,7 @@ public class OperationHandler implements HttpHandler {
                 OutputStream os = t.getResponseBody();
                 os.write(content.getBytes());
                 os.close();
+                os.flush();
             }
         } catch (Exception e) {
             e.printStackTrace();

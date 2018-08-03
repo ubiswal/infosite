@@ -13,7 +13,7 @@ import com.ubiswal.infosite.utils.MyLogger;
 
 @SuppressWarnings("restriction")
 public class Main {
- // Replace this with your password before starting the server
+    // Replace this with your password before starting the server
     private static final String SECRET = "SECRET";
     private static final int PORT = 80;
 

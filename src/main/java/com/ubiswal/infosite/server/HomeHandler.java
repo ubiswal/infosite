@@ -1,10 +1,13 @@
 package com.ubiswal.infosite.server;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.URISyntaxException;
 import java.util.logging.Logger;
 
 import com.sun.net.httpserver.HttpExchange;
@@ -39,6 +42,7 @@ public class HomeHandler implements HttpHandler {
             t.sendResponseHeaders(500, response.getBytes().length);
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
+            os.flush();
             os.close();
         }
     }
